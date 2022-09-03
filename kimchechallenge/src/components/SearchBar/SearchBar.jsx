@@ -42,7 +42,7 @@ function SearchBar({countries}) {
     }
     function handleFilterLanguage(e){
         e.preventDefault()
-        let language=pais?.filter(e=>e.languages[0].name).sort(function (a, b) {
+        let language=pais?.filter(e=>e.languages[0]?.name).sort(function (a, b) {
             if (a.languages[0].name.toLowerCase() > b.languages[0].name.toLowerCase()) {
                 return 1;
             }
