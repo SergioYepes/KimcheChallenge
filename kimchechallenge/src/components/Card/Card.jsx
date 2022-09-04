@@ -31,7 +31,7 @@ function Card({emojiU,name,continent,languages,phone,capital,states}) {
           </div>:
           <></>
         }
-        {
+        {/* {
           states ? <h3 className={style.states}>Nation States: {function(states){
               if(Array.isArray(states)){
                   let st=states.map(e=>e.name)
@@ -39,7 +39,7 @@ function Card({emojiU,name,continent,languages,phone,capital,states}) {
               }
             }(states)}</h3> 
             : <></>
-        }
+        } */}
         <h3>Continents: {continent}</h3>
       </div>
     </div>
