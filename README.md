@@ -1,7 +1,7 @@
 # Desafío para Software Engineers
 
-Nombre postulante: [TU NOMBRE]
-Link a la app en producción: [LINK DEL DEPLOY]
+Nombre postulante: [Sergio Yepes]
+Link a la app en producción: [https://countries-search-earth.vercel.app]
 
 ## Instrucciones
 
@@ -37,3 +37,7 @@ Acá van algunas cosas que pueden ser útiles (o no 👀):
 - [Eslint](https://eslint.org/)
 - [Eslint airbnb](https://www.npmjs.com/package/eslint-config-airbnb)
 - [Husky](https://www.npmjs.com/package/husky)
+
+
+## Respuesta a la pregunta
+En ese caso de haber tal cantidad de datos o de filas en esa base, me pareceria prudente que la base se actualizara cada cierto tiempo eliminando datos innecesarios o usuarios olvidados, en caso de que no se pueda actualizar porque son datos necesarios, propongo dividir la cantidad de datos que se toman en la consulta, ya sea con filtros o paginaciones que rendericen los necesarios, otra opcion seria usar funcionalidades parecidas a las de un scroll infinito para cargar los datos
