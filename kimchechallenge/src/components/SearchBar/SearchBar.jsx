@@ -1,12 +1,12 @@
 import React,{ useEffect, useState} from 'react'
-import Filters from "../filters/Filters"
+import style from "./search.module.css"
 import Cards from '../Cards/Cards'
+import { BiSearch } from 'react-icons/bi'
 
 function SearchBar({countries}) {
     const[Nombre,setNombre]=useState("")
     const[pais,setPais]= useState(null)
-    let [filterC,setFiltroC]= useState(false)
-    let [filterL,setFiltroL]= useState(false)
+    let [filter,setFiltro]= useState("continent")
    
     
     function handleChange(e) {
@@ -23,7 +23,6 @@ function SearchBar({countries}) {
             }
             setPais(filt)
         } 
-        setNombre("")
     }
     function handleFilterContinent(e){
             e.preventDefault()
@@ -36,8 +35,8 @@ function SearchBar({countries}) {
                 }
                 return 0
             })
-            setFiltroC(true)
-            setFiltroL(false)
+            setFiltro("continent")
+
             setPais(continent)
     }
     function handleFilterLanguage(e){
@@ -52,37 +51,41 @@ function SearchBar({countries}) {
             return 0
         })
         console.log(language)
-        setFiltroL(true)
-        setFiltroC(false)
+        setFiltro("language")
         setPais(language)
     }
     useEffect(()=>{ 
-            setPais()
-    },[])
+            if (pais) setPais(pais)
+    },[pais])
      if(pais){
         return(
             <>
-            <div>
-                <h1>Group By</h1>
-                <button onClick={e=>handleFilterContinent(e)}>Continent</button>
-                <button onClick={e=>handleFilterLanguage(e)}>Language</button>
-            </div> <br/><br/>
-            <button onClick={()=>setPais(null)}>new Search</button>
-            <Cards countries={pais} filterL={filterL} filterC={filterC}/>
+            <div className={style.contenedorF}>
+                <h1 className={style.h1}>Group By</h1>
+                <div className={style.filtrosContenedor}>
+                    <div className={style.boton_filtro}>
+                        <button onClick={e=>handleFilterContinent(e)}>Continent</button>
+                        <button onClick={e=>handleFilterLanguage(e)}>Language</button>
+                    </div>
+                </div> <br/><br/>
+                <button className={style.botonReset} onClick={()=>setPais(null)}>new Search</button>
+            </div>
+                <Cards countries={pais} name={Nombre} filter={filter}/>
             </>
+            // 
         )    
     }
   return (
-    <div>
-        <form>
+    <div className= {style.contenedor}>
+        <form className={style.SearchBar}>
             <input
-                className="searchBar"
+                className={style.input}
                 type="text"
                 value={Nombre}
                 onChange={e=>handleChange(e)}
                 placeholder="Insert Country here..."
             />
-            <button className="SearchButton" onClick={e=>handleClick(e)}>Search</button>
+            <button className={style.botoncho} onClick={e=>handleClick(e)}><BiSearch/></button>
         </form>
     </div>
   )

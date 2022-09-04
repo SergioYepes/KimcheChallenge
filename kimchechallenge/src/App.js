@@ -4,6 +4,7 @@ import "./App.css";
 import ApolloClient, { InMemoryCache } from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
 
+
 export const client = new ApolloClient({
   cache : new InMemoryCache(),
   uri: "https://countries.trevorblades.com",
