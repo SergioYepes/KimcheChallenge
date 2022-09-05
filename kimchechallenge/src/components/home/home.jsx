@@ -16,7 +16,7 @@ function Home() {
             🚀
           </span>
         </h1>
-        <h2 className={style.container_h2}>This app is to search your country</h2>
+        <h2 className={style.container_h2}>This app is to search your country only in english</h2>
       </div>
       {result.loading && <p>Loading...</p>}
      <SearchBar countries={result.data?.countries} />
